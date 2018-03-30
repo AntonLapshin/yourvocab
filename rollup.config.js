@@ -5,8 +5,8 @@ export default {
   input: 'src/index.js',
   output: {
     format: 'es',
-    file: 'bin/inject.js',
-    name: 'getselector'
+    file: 'bin/index.js',
+    name: 'yourvocab'
   },
   plugins: [
     resolve(),

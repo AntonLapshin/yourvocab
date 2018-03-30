@@ -1,39 +1,38 @@
 {
-  "name": "getselector",
+  "name": "yourvocab",
   "version": "1.0.0",
-  "description": "Get Selector Browser Extension",
+  "description": "Maintain your vocabulary",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "copy": "cp src/manifest.json bin/manifest.json & cp src/background.js bin/background.js & cp src/toggle.js bin/toggle.js & cp src/*.png bin/",
+    "copy": "cp src/manifest.json bin/manifest.json & cp src/background.js bin/background.js & cp src/*.png bin/",
     "build": "./node_modules/.bin/rollup -c rollup.config.js & npm run copy"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AntonLapshin/getselector.git"
+    "url": "git+https://github.com/AntonLapshin/yourvocab.git"
   },
   "keywords": [
-    "get",
-    "css",
-    "selector",
-    "find",
-    "unique",
+    "vocab",
+    "words",
+    "vocabulary",
+    "learn",
+    "english",
     "browser",
     "extension"
   ],
   "author": "AntonLapshin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/AntonLapshin/getselector/issues"
+    "url": "https://github.com/AntonLapshin/yourvocab/issues"
   },
-  "homepage": "https://github.com/AntonLapshin/getselector#readme",
+  "homepage": "https://github.com/AntonLapshin/yourvocab#readme",
   "devDependencies": {
     "rollup": "^0.56.2",
     "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-node-resolve": "^3.0.3"
   },
   "dependencies": {
-    "@medv/finder": "^1.0.1",
     "lodash": "^4.17.5"
   }
 }

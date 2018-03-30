@@ -1,6 +1,6 @@
 {
-  "name": "Get Unique CSS Selector",
-  "short_name": "Get Selector",
+  "name": "Your Vocabulary",
+  "short_name": "Your Vocabulary",
   "description": "Find unique CSS selector of any item on your page. Hover and click.",
   "version": "1.0",
   "permissions": ["activeTab", "declarativeContent", "*://*/*"],
@@ -14,7 +14,7 @@
   },
   "page_action": {
     "default_icon": "icon_32.png",
-    "default_title": "Get Selector"
+    "default_title": "Your Vocabulary"
   },
   "manifest_version": 2
 }
