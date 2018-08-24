@@ -1,14 +1,10 @@
-const init = () => {
-    window.YOURVOCAB = {
-        on: false
-    };
-};
+!(() => {
+  if (window.__yv && window.__yv.initialized) {
+    window.__yv.toggle();
+    return;
+  }
 
-const toggle = () => {
-  const on = !window.YOURVOCAB.on;
-};
-
-(() => {
-    !window.YOURVOCAB && init();
-    toggle();
+  const yv = (window.__yv = {
+    state: false
+  });
 })();

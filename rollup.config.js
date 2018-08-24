@@ -4,8 +4,8 @@ import commonjs from 'rollup-plugin-commonjs';
 export default {
   input: 'src/index.js',
   output: {
-    format: 'es',
-    file: 'bin/index.js',
+    format: 'iife',
+    file: 'bin/inject.js',
     name: 'yourvocab'
   },
   plugins: [
@@ -13,7 +13,7 @@ export default {
     commonjs({
       exclude: [],
       include: [
-        'node_modules/**',
+        'node_modules/**'
       ]
     })
   ]

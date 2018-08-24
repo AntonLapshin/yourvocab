@@ -1,7 +1,7 @@
 {
   "name": "Your Vocabulary",
   "short_name": "Your Vocabulary",
-  "description": "Find unique CSS selector of any item on your page. Hover and click.",
+  "description": "Maintain your vocabulary, add the words you already know",
   "version": "1.0",
   "permissions": ["activeTab", "declarativeContent", "*://*/*"],
   "background": {
@@ -9,8 +9,7 @@
     "persistent": false
   },
   "icons": {
-    "32": "icon_32.png",
-    "128": "icon_128.png"
+    "32": "icon_32.png"
   },
   "page_action": {
     "default_icon": "icon_32.png",
