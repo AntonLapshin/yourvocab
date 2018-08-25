@@ -6,18 +6,15 @@ const getTextNodes = el => {
   return a;
 };
 
-const regex = /\b([A-Za-z']+)\b/gm;
-
 export const getUnknownWords = (trie, el) => {
   const textNodes = getTextNodes(el);
+  let regex, match;
 
   const words = new Set();
   for (let textNode of textNodes) {
-    const matches = regex.exec(textNode.textContent);
-    if (!matches){
-      continue;
-    }
-    for (let word of matches) {
+    regex = /([a-z'’]+)/gmi;
+    while ((match = regex.exec(textNode.textContent))) {
+      const word = match[1].toLowerCase();
       if (!trie.lookup(word)) {
         words.add(word);
       }
