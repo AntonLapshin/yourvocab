@@ -28,11 +28,11 @@
   },
   "homepage": "https://github.com/AntonLapshin/yourvocab#readme",
   "devDependencies": {
+    "lodash": "^4.17.10",
     "rollup": "^0.56.2",
     "rollup-plugin-commonjs": "^8.3.0",
-    "rollup-plugin-node-resolve": "^3.0.3"
+    "rollup-plugin-node-resolve": "^3.0.3",
+    "trie": "^0.2.1"
   },
-  "dependencies": {
-    "lodash": "^4.17.5"
-  }
+  "dependencies": {}
 }

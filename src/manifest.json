@@ -3,7 +3,7 @@
   "short_name": "Your Vocabulary",
   "description": "Maintain your vocabulary, add the words you already know",
   "version": "1.0",
-  "permissions": ["activeTab", "declarativeContent", "*://*/*"],
+  "permissions": ["activeTab", "declarativeContent", "*://*/*", "storage"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
