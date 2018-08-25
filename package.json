@@ -29,6 +29,7 @@
   "homepage": "https://github.com/AntonLapshin/yourvocab#readme",
   "devDependencies": {
     "lodash": "^4.17.10",
+    "mark.js": "^8.11.1",
     "rollup": "^0.56.2",
     "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-node-resolve": "^3.0.3",

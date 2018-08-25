@@ -1,4 +1,6 @@
 import { Trie, createTrieFromArray } from "trie";
+import { getUnknownWords } from "./lookup";
+import Mark from "mark.js";
 import debounce from "lodash/debounce";
 
 !(() => {
@@ -34,12 +36,21 @@ import debounce from "lodash/debounce";
   chrome.storage.local.get("words", ({ words }) => {
     if (!words) {
       global.trie = new Trie();
-      // global.trie.addWord("home");
       global.save();
     } else {
       console.log("load:", words);
       global.trie = createTrieFromArray(words);
     }
+
+    const context = document.body;
+    const instance = new Mark(context);
+    const unknownWords = getUnknownWords(global.trie, document.body).filter(
+      (v, i) => i < 10
+    );
+    const expression = `\\b(${unknownWords.join("|")})\\b`;
+    console.log(expression);
+    const regex = new RegExp(expression, "gm");
+    instance.markRegExp(regex);
   });
 
   global.initialized = true;
