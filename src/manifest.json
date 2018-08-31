@@ -9,10 +9,11 @@
     "persistent": false
   },
   "icons": {
-    "32": "icon_32.png"
+    "32": "icon_64.png",
+    "64": "icon_64.png"
   },
   "page_action": {
-    "default_icon": "icon_32.png",
+    "default_icon": "icon_64.png",
     "default_title": "Your Vocabulary"
   },
   "manifest_version": 2

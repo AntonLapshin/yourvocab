@@ -1,7 +1,7 @@
 import { Trie, createTrieFromArray } from "trie";
 import { loadWords, saveWords } from "./storage";
 import { getUnknownWords } from "./lookup";
-import { highlight, unmark } from "./highlight";
+import { highlight, unmarkWord, unmarkAll } from "./mark";
 import { addStyle } from "./addStyle";
 import debounce from "lodash/debounce";
 
@@ -14,10 +14,17 @@ export const init = async global => {
   //
   // Toggle the extension
   //
-  global.toggle = () => {
+  global.toggle = async () => {
     global.state = !global.state;
     const action = global.state ? "addEventListener" : "removeEventListener";
     document[action]("mousedown", global.onMouseDown);
+    !global.state && unmarkAll();
+
+    if (global.state) {
+      const el = document.body;
+      const unknownWords = getUnknownWords(global.trie, el);
+      highlight(el, unknownWords);
+    }
   };
 
   global.onMouseDown = e => {
@@ -29,7 +36,7 @@ export const init = async global => {
     console.log(word);
     global.trie.addWord(word);
     saveWordsDebounced();
-    unmark(word);
+    unmarkWord(word);
   };
 
   addStyle(`
@@ -46,13 +53,8 @@ export const init = async global => {
   `);
 
   global.initialized = true;
-  global.toggle();
 
   const words = await loadWords();
   global.trie = !words ? new Trie() : createTrieFromArray(words);
-
-  const el = document.body; //document.querySelector('.vxK8q');
-
-  const unknownWords = getUnknownWords(global.trie, el);
-  highlight(el, unknownWords);
+  await global.toggle();
 };

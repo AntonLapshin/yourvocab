@@ -13,7 +13,7 @@ export const highlight = (el, words) => {
   }
 };
 
-export const unmark = word => {
+export const unmarkWord = word => {
   const marks = document.querySelectorAll("mark:not(.added)");
   [].forEach.call(marks, mark => {
     if (mark.innerText.toLowerCase() === word) {
@@ -21,4 +21,8 @@ export const unmark = word => {
     }
   });
   instance.unmark({ className: "added" });
+};
+
+export const unmarkAll = () => {
+  instance.unmark();
 };
