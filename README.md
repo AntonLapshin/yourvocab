@@ -10,27 +10,27 @@ Maintain your vocabulary. Activate the extension on a page and click on the word
 
 Stats
 
-[-] How many words in your dictionary
+- [ ] How many words in your dictionary
 
 Settings
 
-[-] Setting your primary language
+- [ ] Setting your primary language
 
 Hovering on a word and see the following info: 
 
-[-] importance of the word
-[-] language
-[-] translation
-[-] pronunciation
-[-] see examples
+- [ ] importance of the word
+- [ ] language
+- [ ] translation
+- [ ] pronunciation
+- [ ] see examples
 
 Maintain your dictionary
 
-[-] remove words
-[-] download the dictionary
-[-] upload words
+- [ ] remove words
+- [ ] download the dictionary
+- [ ] upload words
 
 Learn
 
-[-] mark words that you want to learn
-[-] they will be appearing on your screen time to time
+- [ ] mark words that you want to learn
+- [ ] they will be appearing on your screen time to time
