@@ -34,3 +34,7 @@ Learn
 
 - [ ] mark words that you want to learn
 - [ ] they will be appearing on your screen time to time
+
+## License
+
+MIT
