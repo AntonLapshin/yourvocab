@@ -1,25 +1,36 @@
+import flow from "lodash/flow";
+import curryRight from "lodash/curryRight";
+import flatMap from "lodash/flatMap";
+import filter from "lodash/filter";
+import reduce from "lodash/reduce";
+
 const getTextNodes = el => {
-  let n,
-    a = [],
-    walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
-  while ((n = walk.nextNode())) a.push(n);
-  return a;
-};
-
-export const getUnknownWords = (trie, el) => {
-  const textNodes = getTextNodes(el);
-  let regex, match;
-
-  const words = new Set();
-  for (let textNode of textNodes) {
-    regex = /([a-z'’]+)/gmi;
-    while ((match = regex.exec(textNode.textContent))) {
-      const word = match[1].toLowerCase();
-      if (!trie.lookup(word)) {
-        words.add(word);
-      }
-    }
+  let node,
+    nodes = [],
+    walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  while ((node = walker.nextNode())) {
+    nodes.push(node);
   }
-
-  return [...words];
+  return nodes;
 };
+
+const onlyUnknownWords = trie => word => !trie.lookup(word);
+
+const getWordsFromTextNode = textNode =>
+  textNode.textContent.toLowerCase().match(/([a-z'’äüöß]+)/gim);
+
+const countWord = (total, word) => (
+  (total[word] = total[word] !== undefined ? total[word] + 1 : 0), total
+);
+
+const sortWords = words =>
+  Object.keys(words).sort((a, b) => words[a] - words[b]);
+
+export const getUnknownWords = trie =>
+  flow(
+    getTextNodes,
+    curryRight(flatMap)(getWordsFromTextNode),
+    curryRight(filter)(onlyUnknownWords(trie)),
+    curryRight(reduce)({})(countWord),
+    sortWords
+  );

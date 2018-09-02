@@ -22,7 +22,7 @@ export const init = async global => {
 
     if (global.state) {
       const el = document.body;
-      const unknownWords = getUnknownWords(global.trie, el);
+      const unknownWords = getUnknownWords(global.trie)(el);
       highlight(el, unknownWords);
     }
   };
