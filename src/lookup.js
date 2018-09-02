@@ -24,7 +24,7 @@ const countWord = (total, word) => (
 );
 
 const sortWords = words =>
-  Object.keys(words).sort((a, b) => words[a] - words[b]);
+  Object.keys(words).sort((a, b) => words[b] - words[a]);
 
 export const getUnknownWords = trie =>
   flow(
